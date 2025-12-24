@@ -1,0 +1,71 @@
+KURBANLIK SATIŞ VE TAKİP SİSTEMİ - KULLANIM KILAVUZU
+
+Bu döküman, sistemin nasıl kullanılacağını adım adım anlatan bir rehberdir.
+
+1. SİSTEME GİRİŞ
+---------------------------------------------------------
+Uygulamayı açtığınızda sizi bir güvenlik ekranı karşılar.
+- Sisteme giriş yapmak için "Ortak Şifre"yi (Örn: 1234) giriniz.
+- "Giriş Yap" butonuna bastığınızda Ana Ekran (Dashboard) açılacaktır.
+
+2. ANA EKRAN (DASHBOARD)
+---------------------------------------------------------
+Ana ekranda tüm hayvanların listesini görebilirsiniz.
+- Üst kısımda "HAYVAN EKLE" butonu ve altında filtreler bulunur.
+- [BÜYÜKBAŞ] butonuna basarsanız sadece büyükbaşları, [KÜÇÜKBAŞ] butonuna basarsanız sadece küçükbaşları listeler.
+- Hayvanlar, "Hisse Fiyatı" en yüksek olandan en düşüğe doğru sıralanır.
+- Hisseleri tamamen biten (Satılan) hayvanlar listenin en sonuna atılır ve renkleri soluklaşır.
+
+3. YENİ HAYVAN EKLEME
+---------------------------------------------------------
+En üstteki "HAYVAN EKLE" butonuna basarak yeni kayıt oluşturabilirsiniz.
+
+A) TÜR SEÇİMİ:
+   - "Büyükbaş" veya "Küçükbaş" seçeneğini işaretleyin.
+
+B) TESLİM TÜRÜ VE HİSSELER:
+   - Eğer BÜYÜKBAŞ seçerseniz:
+     * "Hisseli": 1 ile 7 arasında hisse sayısı belirleyebilirsiniz (Genelde 7).
+     * "Karkas" veya "Ayaktan": Sistem otomatik olarak hisse sayısını 1 yapar (Tek kişiye satış).
+   
+   - Eğer KÜÇÜKBAŞ seçerseniz:
+     * Sistem otomatik olarak hisse sayısını 1 yapar.
+     * Teslim türü olarak Ayaktan, Karkas veya Parçalanmış seçebilirsiniz.
+
+C) FİYAT BİLGİLERİ:
+   - "Alış Fiyatı"nı (maliyet) not olarak girebilirsiniz.
+   - "Satış Fiyatı (Toplam)" kısmına hayvanın komple fiyatını yazın.
+   - Sistem, hisse başı fiyatı otomatik hesaplayacaktır.
+
+4. HİSSEDAR VE MÜŞTERİ YÖNETİMİ
+---------------------------------------------------------
+Listeden bir hayvana tıkladığınızda "Detay Ekranı" açılır.
+
+- BOŞ HİSSE SATIŞI:
+  Boş olan (gri renkli) bir sıraya tıklayın. Açılan formda:
+  1. Müşteri Adı Soyadı
+  2. Telefon Numaraları (Tel 1 ve Tel 2)
+  3. Vekalet Durumu (Kutucuğu işaretleyerek vekalet alındığını belirtebilirsiniz)
+  4. Ödeme Bilgileri:
+     - Ne kadar ödeme aldıysanız "Ödenen" kısmına yazın.
+     - Sistem "Kalan Borcu" otomatik gösterir.
+     - Ödemeyi alan kişiyi (Salih, Kadir, Hacı, Erdem) seçin.
+     - Ödeme yöntemini (Nakit, IBAN) seçin.
+  "KAYDET" butonuna basınca hisse satılmış olur ve rengi yeşile döner.
+
+- BİLGİ DÜZENLEME:
+  Satılmış bir hisseye tekrar tıklayarak ödeme ekleyebilir veya bilgileri güncelleyebilirsiniz.
+
+5. WHATSAPP VE İLETİŞİM
+---------------------------------------------------------
+Satılan bir hissenin üzerinde yeşil bir "WhatsApp" ikonu (Konum Butonu) göreceksiniz.
+- Bu butona tıkladığınızda, müşterinin telefonuna otomatik bir WhatsApp mesajı açılır.
+- Mesaj içeriği: "Sayın [Ad], Kurban Sıranız: [No], Kesim Yerimiz: [Link]..." şeklindedir.
+
+6. DÜZENLEME VE SİLME
+---------------------------------------------------------
+- HAYVAN BİLGİLERİNİ DÜZENLEME: Hayvan detay sayfasında, sağ üstte mavi renkli "DÜZENLE" butonu bulunur. Buna basarak fiyatı, kiloyu veya notları sonradan değiştirebilirsiniz.
+- SİLME: Bir hayvanı veya hisseyi silmek isterseniz ilgili "Çöp Kutusu" ikonunu (Kırmızı) kullanabilirsiniz. (Dikkat: Silinen kayıt geri gelmez).
+
+---------------------------------------------------------
+İyi çalışmalar dileriz.
