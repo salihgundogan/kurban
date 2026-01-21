@@ -360,8 +360,18 @@ export default function AddAnimalModal({ isOpen, onClose, editData = null }) {
                             </label>
                         </div>
                         {formData.photoUrl && (
-                            <div className="mt-2 text-center">
-                                <img src={formData.photoUrl} alt="Preview" className="h-24 w-auto mx-auto rounded border" />
+                            <div className="mt-2 text-center relative">
+                                <div className="inline-block relative">
+                                    <img src={formData.photoUrl} alt="Preview" className="h-24 w-auto mx-auto rounded border" />
+                                    <button
+                                        type="button"
+                                        onClick={() => setFormData(prev => ({ ...prev, photoUrl: '' }))}
+                                        className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 shadow-lg"
+                                        title="Fotoğrafı Sil"
+                                    >
+                                        <FaTimes size={12} />
+                                    </button>
+                                </div>
                                 <span className="text-xs text-green-600 block mt-1">Fotoğraf seçildi</span>
                             </div>
                         )}
