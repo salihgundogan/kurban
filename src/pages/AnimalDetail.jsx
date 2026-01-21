@@ -83,7 +83,8 @@ export default function AnimalDetail() {
 
         // 2. Validation: Payment (Paid > Total Price)
         const totalSharePrice = calculateSharePrice(animal.totalPrice, animal.totalShares);
-        if (Number(shareForm.paidAmount) > totalSharePrice) {
+        const paidAmountNum = parsePaidAmount(shareForm.paidAmount);
+        if (paidAmountNum > totalSharePrice) {
             alert("Hata: Ödenen miktar, hisse bedelinden büyük olamaz!");
             return;
         }
@@ -97,7 +98,7 @@ export default function AnimalDetail() {
                 customerPhone: shareForm.phone1,
                 customerPhone2: shareForm.phone2,
                 hasProxy: shareForm.hasProxy,
-                paidAmount: Number(shareForm.paidAmount),
+                paidAmount: paidAmountNum,
                 paymentReceiver: shareForm.paymentReceiver,
                 paymentMethod: shareForm.paymentMethod,
                 isSold: true
@@ -129,6 +130,19 @@ export default function AnimalDetail() {
         if (/^[0-9]*$/.test(value) || value === '') {
             setShareForm({ ...shareForm, [field]: value });
         }
+    };
+
+    // Ödenen miktar için handler - nokta ve virgülleri binlik ayracı olarak kabul edip siler
+    const handlePaidAmountChange = (value) => {
+        // Nokta ve virgülleri kaldır, sadece rakamlara izin ver
+        const cleanedValue = value.replace(/[.,]/g, '').replace(/[^0-9]/g, '');
+        setShareForm({ ...shareForm, paidAmount: cleanedValue });
+    };
+
+    // paidAmount'u sayıya çevirmek için helper
+    const parsePaidAmount = (value) => {
+        if (!value) return 0;
+        return Number(String(value).replace(/[.,]/g, ''));
     };
 
     const handleDeleteShare = async (shareId) => {
@@ -384,12 +398,12 @@ export default function AnimalDetail() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Ödenen (TL)</label>
-                                    <input type="number" inputMode="decimal" required className="w-full border border-gray-300 rounded-lg p-3 text-base font-bold text-gray-900" value={shareForm.paidAmount} onChange={e => setShareForm({ ...shareForm, paidAmount: e.target.value })} />
+                                    <input type="text" inputMode="numeric" required className="w-full border border-gray-300 rounded-lg p-3 text-base font-bold text-gray-900" value={shareForm.paidAmount} onChange={e => handlePaidAmountChange(e.target.value)} placeholder="Örn: 10000" />
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Kalan Borç</label>
                                     <div className="w-full bg-gray-100 p-3 rounded-lg text-red-600 font-bold border border-gray-200 flex items-center h-[50px]">
-                                        {formatCurrency(sharePrice - Number(shareForm.paidAmount))}
+                                        {formatCurrency(sharePrice - parsePaidAmount(shareForm.paidAmount))}
                                     </div>
                                 </div>
                             </div>
