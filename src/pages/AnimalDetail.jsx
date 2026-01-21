@@ -154,7 +154,16 @@ export default function AnimalDetail() {
         <div className="pb-10 max-w-3xl mx-auto">
             {/* Top Bar */}
             <div className="flex justify-between items-center mb-4">
-                <button onClick={() => navigate('/dashboard')} className="text-gray-600 flex items-center font-medium">
+                <button
+                    onClick={() => {
+                        if (window.history.length > 1) {
+                            navigate(-1);
+                        } else {
+                            navigate('/dashboard');
+                        }
+                    }}
+                    className="text-gray-600 flex items-center font-medium p-2 -ml-2 active:opacity-60 transition-opacity"
+                >
                     <FaArrowLeft className="mr-2" /> Listeye Dön
                 </button>
                 <button
