@@ -10,6 +10,7 @@ import ProfitLoss from './pages/ProfitLoss';
 import DailyCash from './pages/DailyCash';
 import Customers from './pages/Customers';
 import Inventory from './pages/Inventory';
+import Payments from './pages/Payments';
 import Settings from './pages/Settings';
 
 const ProtectedRoute = ({ children }) => {
@@ -33,6 +34,7 @@ export default function App() {
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="animal/:id" element={<AnimalDetail />} />
+        <Route path="payments" element={<Payments />} />
         <Route path="sales-report" element={<SalesReport />} />
         <Route path="profit-loss" element={<ProfitLoss />} />
         <Route path="daily-cash" element={<DailyCash />} />

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
-    FaTimes, FaHome, FaChartBar, FaBalanceScale,
+    FaTimes, FaHome, FaMoneyBillWave, FaChartBar, FaBalanceScale,
     FaCashRegister, FaAddressBook, FaBoxes, FaCog
 } from 'react-icons/fa';
 import clsx from 'clsx';
 
 const menuItems = [
     { path: '/dashboard', label: 'Ana Sayfa', icon: FaHome },
+    { path: '/payments', label: 'Ödeme Al', icon: FaMoneyBillWave },
     { path: '/sales-report', label: 'Satış Raporu', icon: FaChartBar },
     { path: '/profit-loss', label: 'Kâr / Zarar', icon: FaBalanceScale },
     { path: '/daily-cash', label: 'Günlük Kasa', icon: FaCashRegister },
