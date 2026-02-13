@@ -17,8 +17,14 @@ export default function AnimalCard({ animal }) {
                 isSoldOut && "opacity-70 grayscale bg-gray-50"
             )}
         >
-            {/* 1. KÜÇÜK FOTO (Thumbnail) - Sol */}
-            <div className="flex-shrink-0 w-16 h-16 bg-gray-200 rounded-md overflow-hidden mr-3">
+            {/* 0. KESİM SIRASI - En Solda, Büyük Punto */}
+            <div className="flex-shrink-0 w-12 h-16 bg-primary/10 rounded-md flex flex-col items-center justify-center mr-2 border border-primary/20">
+                <span className="text-[9px] text-primary font-bold uppercase leading-tight">Sıra</span>
+                <span className="text-xl font-black text-primary leading-tight">{animal.queueNo || '-'}</span>
+            </div>
+
+            {/* 1. KÜÇÜK FOTO (Thumbnail) */}
+            <div className="flex-shrink-0 w-14 h-14 bg-gray-200 rounded-md overflow-hidden mr-3">
                 {animal.photoUrl ? (
                     <img src={animal.photoUrl} alt={animal.name} className="w-full h-full object-cover" />
                 ) : (
@@ -33,10 +39,10 @@ export default function AnimalCard({ animal }) {
 
                 {/* Küpe / Tanım */}
                 <div className="col-span-1">
-                    <p className="text-xs text-gray-500 uppercase font-bold tracking-wider">
+                    <p className="text-[10px] text-gray-400 uppercase tracking-wider">
                         {animal.type === 'büyükbaş' ? 'Küpe No' : 'Tanım'}
                     </p>
-                    <p className="text-sm font-bold text-gray-900 truncate">
+                    <p className="text-xs font-medium text-gray-700 truncate">
                         {animal.name}
                     </p>
                 </div>

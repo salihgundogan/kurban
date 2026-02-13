@@ -18,6 +18,8 @@ export default function AddAnimalModal({ isOpen, onClose, editData = null }) {
         photoUrl: '', // Base64 or URL
         queueNo: '',
         slaughterTime: '',
+        liveWeight: '',
+        carcassWeight: '',
         notes: ''
     });
 
@@ -31,7 +33,9 @@ export default function AddAnimalModal({ isOpen, onClose, editData = null }) {
                 buyingPrice: editData.buyingPrice || '',
                 totalPrice: editData.totalPrice || '',
                 totalShares: editData.totalShares || 7,
-                animalNumber: editData.animalNumber || ''
+                animalNumber: editData.animalNumber || '',
+                liveWeight: editData.liveWeight || '',
+                carcassWeight: editData.carcassWeight || ''
             });
         } else {
             // Reset Default
@@ -46,6 +50,8 @@ export default function AddAnimalModal({ isOpen, onClose, editData = null }) {
                 photoUrl: '',
                 queueNo: '',
                 slaughterTime: '',
+                liveWeight: '',
+                carcassWeight: '',
                 notes: ''
             });
         }
@@ -174,6 +180,8 @@ export default function AddAnimalModal({ isOpen, onClose, editData = null }) {
                 buyingPrice: Number(formData.buyingPrice),
                 totalPrice: Number(formData.totalPrice),
                 totalShares: Number(formData.totalShares),
+                liveWeight: Number(formData.liveWeight) || 0,
+                carcassWeight: Number(formData.carcassWeight) || 0,
             };
 
             if (editData) {
@@ -272,7 +280,7 @@ export default function AddAnimalModal({ isOpen, onClose, editData = null }) {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-1">Kesim Saati</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1">Tahmini Kesim Saati</label>
                             <input
                                 type="time"
                                 name="slaughterTime"
@@ -340,6 +348,43 @@ export default function AddAnimalModal({ isOpen, onClose, editData = null }) {
                                 onChange={handleChange}
                                 className="w-full border border-gray-300 rounded-lg p-3 text-base font-bold text-gray-900"
                             />
+                        </div>
+                    </div>
+
+                    {/* Ağırlık Bilgileri */}
+                    <div className="grid grid-cols-3 gap-4 bg-amber-50 p-3 rounded-lg border border-amber-200">
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1">Canlı Ağırlık (kg)</label>
+                            <input
+                                type="number"
+                                inputMode="decimal"
+                                name="liveWeight"
+                                value={formData.liveWeight}
+                                onChange={handleChange}
+                                placeholder="Örn: 450"
+                                className="w-full border border-gray-300 rounded-lg p-3 text-base"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1">Karkas Ağırlık (kg)</label>
+                            <input
+                                type="number"
+                                inputMode="decimal"
+                                name="carcassWeight"
+                                value={formData.carcassWeight}
+                                onChange={handleChange}
+                                placeholder="Örn: 250"
+                                className="w-full border border-gray-300 rounded-lg p-3 text-base"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-1">Kemikli Hisse (kg)</label>
+                            <div className="w-full bg-gray-100 border border-gray-200 rounded-lg p-3 text-base font-bold text-amber-800 flex items-center h-[48px]">
+                                {formData.carcassWeight && Number(formData.totalShares) > 0
+                                    ? (Number(formData.carcassWeight) / Number(formData.totalShares)).toFixed(2)
+                                    : '-'}
+                                {formData.carcassWeight && Number(formData.totalShares) > 0 && <span className="text-xs font-normal text-gray-500 ml-1">kg</span>}
+                            </div>
                         </div>
                     </div>
 

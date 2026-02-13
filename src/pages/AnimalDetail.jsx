@@ -218,7 +218,7 @@ export default function AnimalDetail() {
                             <span className="font-semibold text-gray-800">{animal.queueNo || '-'}</span>
                         </div>
                         <div>
-                            <span className="block text-xs text-gray-500">Kesim Saati</span>
+                            <span className="block text-xs text-gray-500">Tahmini Kesim Saati</span>
                             <span className="font-semibold text-gray-800">{animal.slaughterTime || '-'}</span>
                         </div>
                         <div>
@@ -232,6 +232,28 @@ export default function AnimalDetail() {
                             </span>
                         </div>
                     </div>
+
+                    {/* Ağırlık Bilgileri */}
+                    {(animal.liveWeight || animal.carcassWeight) ? (
+                        <div className="grid grid-cols-3 gap-4 bg-amber-50 p-3 rounded-lg border border-amber-200 mb-2">
+                            <div>
+                                <span className="block text-xs text-amber-700 font-semibold">Canlı Ağırlık</span>
+                                <span className="font-bold text-gray-900 text-lg">{animal.liveWeight ? `${animal.liveWeight} kg` : '-'}</span>
+                            </div>
+                            <div>
+                                <span className="block text-xs text-amber-700 font-semibold">Karkas Ağırlık</span>
+                                <span className="font-bold text-gray-900 text-lg">{animal.carcassWeight ? `${animal.carcassWeight} kg` : '-'}</span>
+                            </div>
+                            <div>
+                                <span className="block text-xs text-amber-700 font-semibold">Kemikli Hisse</span>
+                                <span className="font-bold text-amber-800 text-lg">
+                                    {animal.carcassWeight && animal.totalShares > 0
+                                        ? `${(animal.carcassWeight / animal.totalShares).toFixed(2)} kg`
+                                        : '-'}
+                                </span>
+                            </div>
+                        </div>
+                    ) : null}
 
                     {animal.notes && (
                         <div className="bg-yellow-50 p-3 rounded text-sm text-yellow-800 border border-yellow-100">

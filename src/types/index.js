@@ -17,6 +17,8 @@
  * @property {number} totalPrice - Total price of the animal
  * @property {number} totalShares - Total number of shares (default 7 for cattle)
  * @property {number} soldShares - Count of sold shares
+ * @property {number} liveWeight - Canlı Ağırlık (kg)
+ * @property {number} carcassWeight - Karkas Ağırlık (kg)
  * @property {Share[]} shares - List of share details
  * @property {Object} createdAt - Firestore Timestamp
  */
